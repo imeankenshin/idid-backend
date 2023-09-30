@@ -3,6 +3,10 @@ alias b := build
 alias m := model
 alias gen := generate
 
+# install the dependencies
+init:
+	go get
+	go install github.com/cosmtrek/air@1.29.0
 # run the server with hot reload
 run:
 	air
