@@ -1,7 +1,8 @@
 package main
 
 import (
-	config "idid-api/internal/settings"
+	"fmt"
+	"idid-api/internal/settings"
 	"log"
 	"net/http"
 
@@ -10,7 +11,8 @@ import (
 
 func main() {
 	r := chi.NewRouter()
-	r.Use(config.Middlewares...)
-	r.Group(config.ApplicationRoutes)
+	r.Use(settings.Middlewares...)
+	r.Group(settings.ApplicationRoutes)
+	fmt.Println("Server running on http://localhost:4000")
 	log.Fatalln(http.ListenAndServe(":4000", r))
 }
